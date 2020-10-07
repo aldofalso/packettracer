@@ -3,7 +3,7 @@
 # sudo dnf -y install epel-release
 sudo dnf -y install https://rpmfind.net/linux/opensuse/distribution/leap/15.2/repo/oss/x86_64/libjpeg8-8.1.2-lp152.7.3.x86_64.rpm double-conversion.x86_64 git qt5-qtwebkit qt5-qtmultimedia qt5-qtsvg qt5-qtscript libpng12
 
-sudo cp libcrypto.so.1.0.0 /lib64
+sudo cp ./libcrypto.so.1.0.0 /lib64
 
 # Configure links for libs
 sudo ln -s /lib64/libicui18n.so.65.1 /lib64/libicui18n.so.60
