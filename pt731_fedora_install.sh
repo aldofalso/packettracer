@@ -1,14 +1,6 @@
 #!/bin/bash
-# Install dependencies
-# sudo dnf -y install epel-release
-sudo dnf -y install https://rpmfind.net/linux/opensuse/distribution/leap/15.2/repo/oss/x86_64/libjpeg8-8.1.2-lp152.7.3.x86_64.rpm double-conversion.x86_64 git qt5-qtwebkit qt5-qtmultimedia qt5-qtsvg qt5-qtscript libpng12
 
 sudo cp ./libcrypto.so.1.0.0 /lib64
-
-# Configure links for libs
-sudo ln -s /lib64/libicui18n.so.65.1 /lib64/libicui18n.so.60
-sudo ln -s /lib64/libicuuc.so.65.1 /lib64/libicuuc.so.60
-sudo ln -s /lib64/libdouble-conversion.so.3.1.5 /lib64/libdouble-conversion.so.1
 
 # Extract from offical package
 ar -x PacketTracer_731_amd64.deb data.tar.xz
@@ -76,9 +68,6 @@ exec 0<&3
 sudo cp -r opt/* /opt
 sudo cp -r usr/* /usr
 cd /opt/pt
-
-# Taken from the official package
-sudo echo -e "$CONTENTS" > /etc/profile
 
 # update icon and file assocation
 sudo xdg-desktop-menu install /usr/share/applications/cisco-pt7.desktop
@@ -160,7 +149,5 @@ fi
 if [ $EXPORT_EXISTS -eq 0 ]; then
   CONTENTS="$CONTENTS\nexport QT_DEVICE_PIXEL_RATIO"
 fi
-
-sudo echo -e "$CONTENTS" > /etc/profile
 
 exit 0
